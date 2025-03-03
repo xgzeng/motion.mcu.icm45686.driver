@@ -387,7 +387,7 @@ int inv_imu_adv_get_data_from_registers(inv_imu_device_t *s)
 
 	/* call sensor event callback */
 	if (e->sensor_event_cb)
-		e->sensor_event_cb(&event);
+		e->sensor_event_cb(s, &event);
 
 	return status;
 }
@@ -517,7 +517,7 @@ static int parse_fifo_frame(inv_imu_device_t *s, uint8_t *frame)
 
 	/* call sensor event callback */
 	if (e->sensor_event_cb)
-		e->sensor_event_cb(&event);
+		e->sensor_event_cb(s, &event);
 
 	return status;
 }
@@ -733,7 +733,7 @@ static int decode_compressed_event(inv_imu_device_t *s, uint8_t *frame, uint8_t 
 
 	/* Notify event */
 	if (e->sensor_event_cb)
-		e->sensor_event_cb(&event);
+		e->sensor_event_cb(s, &event);
 
 	return status;
 }
@@ -850,7 +850,7 @@ static int parse_uncompressed_fifo_frame(inv_imu_device_t *s, uint8_t *frame)
 	}
 
 	if (e->sensor_event_cb)
-		e->sensor_event_cb(&event);
+		e->sensor_event_cb(s, &event);
 
 	return status;
 }

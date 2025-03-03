@@ -42,7 +42,7 @@ extern "C" {
  */
 
 /** @brief Sensor event structure definition */
-typedef struct {
+typedef struct inv_imu_sensor_event {
 	/** Specifies which sensors are available in the event 
 	 * (defined by inv_imu_sensor_id_t as a mask)
 	 */
@@ -78,7 +78,7 @@ typedef struct {
 	/** @brief Callback executed when a new sensor event is available.
 	 *  @param[in] event  Pointer to the sensor event.
 	 */
-	void (*sensor_event_cb)(inv_imu_sensor_event_t *event);
+	void (*sensor_event_cb)(inv_imu_device_t *s, inv_imu_sensor_event_t *event);
 
 	/* The following fields will be initialized by inv_imu_adv_init() */
 	uint8_t                  fifo_is_used; /**< Keeps track of FIFO usage */

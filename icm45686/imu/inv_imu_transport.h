@@ -37,7 +37,7 @@ extern "C" {
  *  @param[in] len   Number of byte to be read.
  *  @return          0 on success, negative value on error.
  */
-typedef int (*inv_imu_read_reg_t)(uint8_t reg, uint8_t *buf, uint32_t len);
+typedef int (*inv_imu_read_reg_t)(void *t, uint8_t reg, uint8_t *buf, uint32_t len);
 
 /** @brief Function pointer to write register(s).
  *  @param[in] reg  Register address to be written.
@@ -45,7 +45,7 @@ typedef int (*inv_imu_read_reg_t)(uint8_t reg, uint8_t *buf, uint32_t len);
  *  @param[in] len  Number of byte to be written.
  *  @return         0 on success, negative value on error.
  */
-typedef int (*inv_imu_write_reg_t)(uint8_t reg, const uint8_t *buf, uint32_t len);
+typedef int (*inv_imu_write_reg_t)(void *t, uint8_t reg, const uint8_t *buf, uint32_t len);
 
 /* Available serial interface type. */
 #define UI_I2C  0 /**< identifies I2C interface. */
